@@ -1,14 +1,14 @@
 import os
 
-def generate_txt(type)
-"""
-    this function generates the text file for train and val dataset
+def generate_txt(folder_type):
+    """
+        this function generates the text file for train and val dataset
 
-    type(str) : folder you want to save to text file
-                type = train will generate train.txt
-                type = test will generate test.txt
-"""
-    if type == 'train'
+        folder_type(str) : folder you want to save to text file
+                    folder_type = train will generate train.txt
+                    folder_type = test will generate test.txt
+    """
+    if folder_type == 'train':
         image_files = []
         os.chdir(os.path.join("Dataset/data/images", "train"))
         for filename in os.listdir(os.getcwd()):
@@ -29,7 +29,7 @@ def generate_txt(type)
             if filename.endswith(".jpg"):
                 image_files.append("Dataset/data/images/valid/" + filename)
         os.chdir("..")
-        with open("train.txt", "w") as outfile:
+        with open("test.txt", "w") as outfile:
             for image in image_files:
                 outfile.write(image)
                 outfile.write("\n")
@@ -37,4 +37,5 @@ def generate_txt(type)
         os.chdir("..")
 
 if __name__ =="__main__":
-    generate_txt()
+    # generate_txt('train')
+    generate_txt('val')
